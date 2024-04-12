@@ -369,6 +369,290 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/dataflowsource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "vamshilinkedservice",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "anime-dataset-2023.csv",
+						"folderPath": "animedataset",
+						"container": "clientreceive"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "anime_id",
+						"type": "String"
+					},
+					{
+						"name": "Name",
+						"type": "String"
+					},
+					{
+						"name": "English name",
+						"type": "String"
+					},
+					{
+						"name": "Other name",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Genres",
+						"type": "String"
+					},
+					{
+						"name": "Synopsis",
+						"type": "String"
+					},
+					{
+						"name": "Type",
+						"type": "String"
+					},
+					{
+						"name": "Episodes",
+						"type": "String"
+					},
+					{
+						"name": "Aired",
+						"type": "String"
+					},
+					{
+						"name": "Premiered",
+						"type": "String"
+					},
+					{
+						"name": "Status",
+						"type": "String"
+					},
+					{
+						"name": "Producers",
+						"type": "String"
+					},
+					{
+						"name": "Licensors",
+						"type": "String"
+					},
+					{
+						"name": "Studios",
+						"type": "String"
+					},
+					{
+						"name": "Source",
+						"type": "String"
+					},
+					{
+						"name": "Duration",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "Rank",
+						"type": "String"
+					},
+					{
+						"name": "Popularity",
+						"type": "String"
+					},
+					{
+						"name": "Favorites",
+						"type": "String"
+					},
+					{
+						"name": "Scored By",
+						"type": "String"
+					},
+					{
+						"name": "Members",
+						"type": "String"
+					},
+					{
+						"name": "Image URL",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/source2filtered')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "vamshilinkedservice",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "anime-filtered.csv",
+						"folderPath": "animefiltered",
+						"container": "clientreceive"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "anime_id",
+						"type": "String"
+					},
+					{
+						"name": "Name",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Genres",
+						"type": "String"
+					},
+					{
+						"name": "English name",
+						"type": "String"
+					},
+					{
+						"name": "Japanese name",
+						"type": "String"
+					},
+					{
+						"name": "sypnopsis",
+						"type": "String"
+					},
+					{
+						"name": "Type",
+						"type": "String"
+					},
+					{
+						"name": "Episodes",
+						"type": "String"
+					},
+					{
+						"name": "Aired",
+						"type": "String"
+					},
+					{
+						"name": "Premiered",
+						"type": "String"
+					},
+					{
+						"name": "Producers",
+						"type": "String"
+					},
+					{
+						"name": "Licensors",
+						"type": "String"
+					},
+					{
+						"name": "Studios",
+						"type": "String"
+					},
+					{
+						"name": "Source",
+						"type": "String"
+					},
+					{
+						"name": "Duration",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "Ranked",
+						"type": "String"
+					},
+					{
+						"name": "Popularity",
+						"type": "String"
+					},
+					{
+						"name": "Members",
+						"type": "String"
+					},
+					{
+						"name": "Favorites",
+						"type": "String"
+					},
+					{
+						"name": "Watching",
+						"type": "String"
+					},
+					{
+						"name": "Completed",
+						"type": "String"
+					},
+					{
+						"name": "On-Hold",
+						"type": "String"
+					},
+					{
+						"name": "Dropped",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflowdestination')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "vamshilinkedservice",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "finaloutput",
+						"container": "dataflow01output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/stage1client2azuremysidepipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -528,6 +812,138 @@
 				"[concat(variables('factoryId'), '/datasets/vamshitempdataset')]",
 				"[concat(variables('factoryId'), '/datasets/clentsidefilteredtempdata')]",
 				"[concat(variables('factoryId'), '/datasets/vamshifilteredtempdata')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow1join0dataset0filtered')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "dataflowsource1",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						},
+						{
+							"dataset": {
+								"referenceName": "source2filtered",
+								"type": "DatasetReference"
+							},
+							"name": "source2"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "dataflowdestination",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "join1"
+						},
+						{
+							"name": "select1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          anime_id as string,",
+						"          Name as string,",
+						"          {English name} as string,",
+						"          {Other name} as string,",
+						"          Score as string,",
+						"          Genres as string,",
+						"          Synopsis as string,",
+						"          Type as string,",
+						"          Episodes as string,",
+						"          Aired as string,",
+						"          Premiered as string,",
+						"          Status as string,",
+						"          Producers as string,",
+						"          Licensors as string,",
+						"          Studios as string,",
+						"          Source as string,",
+						"          Duration as string,",
+						"          Rating as string,",
+						"          Rank as string,",
+						"          Popularity as string,",
+						"          Favorites as string,",
+						"          {Scored By} as string,",
+						"          Members as string,",
+						"          {Image URL} as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> source1",
+						"source(output(",
+						"          anime_id as string,",
+						"          Name as string,",
+						"          Score as string,",
+						"          Genres as string,",
+						"          {English name} as string,",
+						"          {Japanese name} as string,",
+						"          sypnopsis as string,",
+						"          Type as string,",
+						"          Episodes as string,",
+						"          Aired as string,",
+						"          Premiered as string,",
+						"          Producers as string,",
+						"          Licensors as string,",
+						"          Studios as string,",
+						"          Source as string,",
+						"          Duration as string,",
+						"          Rating as string,",
+						"          Ranked as string,",
+						"          Popularity as string,",
+						"          Members as string,",
+						"          Favorites as string,",
+						"          Watching as string,",
+						"          Completed as string,",
+						"          {On-Hold} as string,",
+						"          Dropped as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> source2",
+						"source1, source2 join(source1@anime_id == source2@anime_id,",
+						"     joinType:'inner',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> join1",
+						"join1 select(mapColumn(",
+						"          anime_id = source1@anime_id,",
+						"          Name = source1@Name,",
+						"          Score = source1@Score,",
+						"          Producers = source1@Producers,",
+						"          Studios = source1@Studios,",
+						"          Duration = source1@Duration,",
+						"          Rating = source1@Rating,",
+						"          Rank",
+						"     ),",
+						"     partitionBy('hash', 1),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> select1",
+						"select1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/dataflowsource1')]",
+				"[concat(variables('factoryId'), '/datasets/source2filtered')]",
+				"[concat(variables('factoryId'), '/datasets/dataflowdestination')]"
 			]
 		}
 	]
