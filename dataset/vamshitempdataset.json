@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "temparory.txt",
 				"folderPath": "animedataset",
 				"container": "clientreceive"
 			},
