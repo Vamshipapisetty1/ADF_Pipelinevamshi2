@@ -1,0 +1,23 @@
+{
+	"name": "dataflowdestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "vamshilinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "finaloutput",
+				"container": "dataflow01output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
