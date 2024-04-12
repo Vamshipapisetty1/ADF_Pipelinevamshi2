@@ -303,7 +303,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/vamshifilteredtempdata')]",
+			"name": "[concat(parameters('factoryName'), '/dataflowdestination')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -316,53 +316,15 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "animefiltered",
-						"container": "clientreceive"
+						"folderPath": "finaloutput",
+						"container": "dataflow01output"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
-				"schema": [
-					{
-						"name": "this is just temp file",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/vamshitempdataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "vamshilinkedservice",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"folderPath": "animedataset",
-						"container": "clientreceive"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "this is just temp file",
-						"type": "String"
-					}
-				]
+				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
@@ -625,7 +587,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dataflowdestination')]",
+			"name": "[concat(parameters('factoryName'), '/vamshifilteredtempdata')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -638,15 +600,53 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "finaloutput",
-						"container": "dataflow01output"
+						"folderPath": "animefiltered",
+						"container": "clientreceive"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"name": "this is just temp file",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/vamshitempdataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "vamshilinkedservice",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "animedataset",
+						"container": "clientreceive"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "this is just temp file",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/vamshilinkedservice')]"
@@ -852,6 +852,9 @@
 						},
 						{
 							"name": "select1"
+						},
+						{
+							"name": "sort1"
 						}
 					],
 					"scriptLines": [
@@ -932,7 +935,8 @@
 						"     partitionBy('hash', 1),",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> select1",
-						"select1 sink(allowSchemaDrift: true,",
+						"select1 sort(asc(anime_id, true)) ~> sort1",
+						"sort1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
