@@ -1,0 +1,125 @@
+{
+	"name": "clentsidefilteredtempdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "clientlinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "anime-filtered.csv",
+				"folderPath": "moviesfiltered",
+				"container": "movies-anime"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "anime_id",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Score",
+				"type": "String"
+			},
+			{
+				"name": "Genres",
+				"type": "String"
+			},
+			{
+				"name": "English name",
+				"type": "String"
+			},
+			{
+				"name": "Japanese name",
+				"type": "String"
+			},
+			{
+				"name": "sypnopsis",
+				"type": "String"
+			},
+			{
+				"name": "Type",
+				"type": "String"
+			},
+			{
+				"name": "Episodes",
+				"type": "String"
+			},
+			{
+				"name": "Aired",
+				"type": "String"
+			},
+			{
+				"name": "Premiered",
+				"type": "String"
+			},
+			{
+				"name": "Producers",
+				"type": "String"
+			},
+			{
+				"name": "Licensors",
+				"type": "String"
+			},
+			{
+				"name": "Studios",
+				"type": "String"
+			},
+			{
+				"name": "Source",
+				"type": "String"
+			},
+			{
+				"name": "Duration",
+				"type": "String"
+			},
+			{
+				"name": "Rating",
+				"type": "String"
+			},
+			{
+				"name": "Ranked",
+				"type": "String"
+			},
+			{
+				"name": "Popularity",
+				"type": "String"
+			},
+			{
+				"name": "Members",
+				"type": "String"
+			},
+			{
+				"name": "Favorites",
+				"type": "String"
+			},
+			{
+				"name": "Watching",
+				"type": "String"
+			},
+			{
+				"name": "Completed",
+				"type": "String"
+			},
+			{
+				"name": "On-Hold",
+				"type": "String"
+			},
+			{
+				"name": "Dropped",
+				"type": "String"
+			}
+		]
+	}
+}

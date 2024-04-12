@@ -1,0 +1,29 @@
+{
+	"name": "vamshifilteredtempdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "vamshilinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "temparory.txt",
+				"folderPath": "animefiltered",
+				"container": "clientreceive"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "this is just temp file",
+				"type": "String"
+			}
+		]
+	}
+}
