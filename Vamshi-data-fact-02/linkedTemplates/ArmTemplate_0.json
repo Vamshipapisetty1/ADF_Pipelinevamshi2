@@ -47,132 +47,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/clienttempdataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "clientlinkedservice",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "anime-dataset-2023.csv",
-						"folderPath": "moviesanimes",
-						"container": "movies-anime"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "anime_id",
-						"type": "String"
-					},
-					{
-						"name": "Name",
-						"type": "String"
-					},
-					{
-						"name": "English name",
-						"type": "String"
-					},
-					{
-						"name": "Other name",
-						"type": "String"
-					},
-					{
-						"name": "Score",
-						"type": "String"
-					},
-					{
-						"name": "Genres",
-						"type": "String"
-					},
-					{
-						"name": "Synopsis",
-						"type": "String"
-					},
-					{
-						"name": "Type",
-						"type": "String"
-					},
-					{
-						"name": "Episodes",
-						"type": "String"
-					},
-					{
-						"name": "Aired",
-						"type": "String"
-					},
-					{
-						"name": "Premiered",
-						"type": "String"
-					},
-					{
-						"name": "Status",
-						"type": "String"
-					},
-					{
-						"name": "Producers",
-						"type": "String"
-					},
-					{
-						"name": "Licensors",
-						"type": "String"
-					},
-					{
-						"name": "Studios",
-						"type": "String"
-					},
-					{
-						"name": "Source",
-						"type": "String"
-					},
-					{
-						"name": "Duration",
-						"type": "String"
-					},
-					{
-						"name": "Rating",
-						"type": "String"
-					},
-					{
-						"name": "Rank",
-						"type": "String"
-					},
-					{
-						"name": "Popularity",
-						"type": "String"
-					},
-					{
-						"name": "Favorites",
-						"type": "String"
-					},
-					{
-						"name": "Scored By",
-						"type": "String"
-					},
-					{
-						"name": "Members",
-						"type": "String"
-					},
-					{
-						"name": "Image URL",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/clientlinkedservice')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/clentsidefilteredtempdata')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -303,7 +177,133 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/vamshitempdataset')]",
+			"name": "[concat(parameters('factoryName'), '/clienttempdataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "clientlinkedservice",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "anime-dataset-2023.csv",
+						"folderPath": "moviesanimes",
+						"container": "movies-anime"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "anime_id",
+						"type": "String"
+					},
+					{
+						"name": "Name",
+						"type": "String"
+					},
+					{
+						"name": "English name",
+						"type": "String"
+					},
+					{
+						"name": "Other name",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Genres",
+						"type": "String"
+					},
+					{
+						"name": "Synopsis",
+						"type": "String"
+					},
+					{
+						"name": "Type",
+						"type": "String"
+					},
+					{
+						"name": "Episodes",
+						"type": "String"
+					},
+					{
+						"name": "Aired",
+						"type": "String"
+					},
+					{
+						"name": "Premiered",
+						"type": "String"
+					},
+					{
+						"name": "Status",
+						"type": "String"
+					},
+					{
+						"name": "Producers",
+						"type": "String"
+					},
+					{
+						"name": "Licensors",
+						"type": "String"
+					},
+					{
+						"name": "Studios",
+						"type": "String"
+					},
+					{
+						"name": "Source",
+						"type": "String"
+					},
+					{
+						"name": "Duration",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "Rank",
+						"type": "String"
+					},
+					{
+						"name": "Popularity",
+						"type": "String"
+					},
+					{
+						"name": "Favorites",
+						"type": "String"
+					},
+					{
+						"name": "Scored By",
+						"type": "String"
+					},
+					{
+						"name": "Members",
+						"type": "String"
+					},
+					{
+						"name": "Image URL",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/clientlinkedservice')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/vamshifilteredtempdata')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -316,8 +316,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "temparory.txt",
-						"folderPath": "animedataset",
+						"folderPath": "animefiltered",
 						"container": "clientreceive"
 					},
 					"columnDelimiter": ",",
@@ -337,7 +336,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/vamshifilteredtempdata')]",
+			"name": "[concat(parameters('factoryName'), '/vamshitempdataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -350,8 +349,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "temparory.txt",
-						"folderPath": "animefiltered",
+						"folderPath": "animedataset",
 						"container": "clientreceive"
 					},
 					"columnDelimiter": ",",
